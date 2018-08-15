@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "env",
+    "react",
+    "mobx"
+  ],
+  "plugins": [
+    "react-hot-loader/babel"
+  ]
+}
