@@ -14,9 +14,9 @@ const SRC_PATH = config.SRC_PATH
 const BUILD_PATH = config.BUILD_PATH
 
 const devMode = process.env.NODE_ENV !== 'production'
-console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>devMode: ' + devMode)
 
 module.exports = {
+  mode: 'development',
   entry: path.resolve(SRC_PATH, 'index.jsx'),
   output: {
     path: BUILD_PATH,
