@@ -4,6 +4,10 @@
 const path = require('path')
 const webpack = require('webpack')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// https://www.npmjs.com/package/optimize-css-assets-webpack-plugin
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+// https://www.npmjs.com/package/mini-css-extract-plugin
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const merge = require('webpack-merge')
 // https://www.webpackjs.com/guides/production/#split-css
 // 使用extract-text-webpack-plugin遇见的坑 -- 该插件会影响样式文件的热更替 所以放到生产环境中
@@ -32,15 +36,38 @@ module.exports = merge(common, {
       }
     ]
   },
+  optimization: {
+    minimizer: [
+      // js mini
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: false // set to true if you want JS source maps
+      }),
+      // css mini
+      // 压缩ExtractTextPlugin输出的css文件，避免重复引用等
+      new OptimizeCssAssetsPlugin({
+        assetNameRegExp: /\.(css|less)$/g,
+        cssProcessor: require('cssnano'),
+        cssProcessorOptions: {
+          // safe: true,
+          discardComments: { removeAll: true }
+        },
+        canPrint: true
+      })
+    ]
+  },
   plugins: [
+    // new MiniCssExtractPlugin({
+    //   // Options similar to the same options in webpackOptions.output
+    //   // both options are optional
+    //   filename: '[name].[hash].css',
+    //   chunkFilename: '[id].[hash].css'
+    // }),
     // https://www.webpackjs.com/plugins/extract-text-webpack-plugin/#修改文件名
     new ExtractTextPlugin({
-      filename: 'static/css/[name].css',
+      filename: 'static/css/[name].[id].css',
       allChunks: true
-    }),
-    // https://www.webpackjs.com/guides/tree-shaking/#压缩输出
-    new UglifyJsPlugin({
-      sourceMap: true
     }),
     // https://www.webpackjs.com/guides/production/#指定环境
     new webpack.DefinePlugin({
