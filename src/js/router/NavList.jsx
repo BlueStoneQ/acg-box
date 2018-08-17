@@ -14,6 +14,7 @@ const NavList = (props) => (
   <Router>
     <div className='nav-wrap'>
       <div className='nav-left'>
+        {/* 导航区域 */}
         <ul>
           <li>
             <Link
@@ -42,6 +43,7 @@ const NavList = (props) => (
         </ul>
       </div>
       <div className='nav-right'>
+        {/* 内容区域 */}
         <RouterMap />
       </div>
     </div>
