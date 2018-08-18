@@ -10,7 +10,7 @@ const FirstTest = () => (
     <div>
       Hello React 太棒了 彩虹 枫叶 害怕 发如雪 温暖的风
         的承诺书 人间失格 <span className='font-h2'>太宰治</span> React-hot-loader  Acg-Box
-         5.cube(): {cube(6)}  123  有梦不难
+         5.cube(): {cube(6)}  123  有梦不难   酷我音乐 1234 加油
     </div>
     <div className='img-box'>
       {/* { myIcon } */}

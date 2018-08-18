@@ -9,8 +9,10 @@ module.exports = merge(common, {
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
     // 这个host用ipconfig在dos中查到 然后手机只要和pc在统一局域网中 就可以访问这个 而且 是pc与手机同步刷新的 可以暂时不考虑BrowserSync了
+    // 为了真机调试移动web页面 -- 这里的不支持mobx等稍复杂的页面 -- 所以 暂弃
+    // 移动端调试替代方案：
     // host: '192.168.1.114',
-    host: '172.16.74.126',
+    // host: '172.16.74.126',
     port: 3000,
     open: true,
     compress: true
