@@ -13,7 +13,7 @@
 
 .app-test {
   background-color: aqua;
-  color: #0f0;
+  color: #0ff;
   // 这里不能使用设置的alias 使用项目中的相对路径/绝对路径 
   background-image: url('../../../assets/images/logo.jpg');
   .img-box {
@@ -25,4 +25,21 @@
 .font-app {
   font-family: 'ssFont';
   font-size: 20px;
+}
+
+/* 一些移动端适配样式 */
+/* 禁止移动端长按选中文本（移动app肯定需要这样做） */
+* {
+  -webkit-touch-callout:none;
+  -moz-touch-callout:none;
+  -ms-touch-callout:none;
+    touch-callout:none;
+}
+
+/* 禁止文本选中 */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+   user-select: none;
 }
