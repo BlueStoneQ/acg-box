@@ -3,7 +3,7 @@ import { cube } from './math'
 import Icon from 'images/logo.jpg'
 import '../../../style/less/test.less'
 // 对于未引入的样式文件 webpack是不会打包引入的
-import '../../../style/less/comStyle/commom.less'
+import '../../../style/less/comStyle/common.less'
 
 const FirstTest = () => (
   <div className='app-test font-app border-radius-5'>

@@ -1,53 +1,39 @@
 /**
  * 用来做页面导航和布局的组件
- * 1- 左侧固定宽度的导航栏
- * 2- 右侧自适应宽度的content
- * 3- 该NavList为pc端布局准备
- * 4- 移动端/新的路由布局请重新设计该组件
+ * 1- 一级路由：NavBar 位于viewPort的底部 -- 对应的view在整个NavBar之上
+ * 2- 二级路由：TabBar 位于viewPort的顶部 -- 对应的view在NavBar和TabBar之间
+ * 3- 顶级路由：view是整个viewPort
  */
 import React from 'react'
-import { HashRouter as Router, NavLink as Link } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import RouterMap from './RouterMap'
+import { NavBar } from '../components/navBar'
 import '../../style/less/navList.less'
 
-const NavList = (props) => (
-  <Router>
-    <div className='nav-wrap'>
-      <div className='nav-left'>
-        {/* 导航区域 */}
-        <ul>
-          <li>
-            <Link
-              to='/firstTest'
-              activeClassName='nav-selected'
-            >
-          FirstTest
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='/game'
-              activeClassName='nav-selected'
-            >
-          Game
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='/todoListsPage'
-              activeClassName='nav-selected'
-            >
-          TodoListsPage
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className='nav-right'>
-        {/* 内容区域 */}
-        <RouterMap />
-      </div>
-    </div>
-  </Router>
-)
+const navList = [
+  { name: 'FirstTest', to: '/firstTest' },
+  { name: 'Game', to: '/game' },
+  { name: 'TodoListsPage', to: '/todoListsPage' }
+]
+
+class NavList extends React.Component {
+  render () {
+    return (
+      <Router>
+        <div className='nav-wrap'>
+          <div className='nav-a'>
+            <NavBar
+              navList={navList}
+            />
+          </div>
+          <div className='con'>
+            {/* 内容区域 */}
+            <RouterMap />
+          </div>
+        </div>
+      </Router>
+    )
+  }
+}
 
 export default NavList

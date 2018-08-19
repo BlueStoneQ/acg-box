@@ -1,16 +1,17 @@
+@import './comStyle/common.less';
+
 .nav-wrap {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: flex-start;
-  .nav-left {
-    width: 30%;
-    order: 0;
-    flex-grow: 0;
-    .nav-selected {
-      background-color: #0ff;
-      color: #fff;
-    }
+  .nav-a {
+    width: 100%;
+    height: 3.5rem;
+    border-top: 1px solid @them-back-sec-color;
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
   .nav-right {
     height: 70%;

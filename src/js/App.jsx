@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 import NavList from './router/NavList'
+import '../style/less/comStyle/common.less'
 
 // var myIcon = new Image()
 // myIcon.src = Icon

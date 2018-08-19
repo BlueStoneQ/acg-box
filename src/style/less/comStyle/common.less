@@ -1,21 +1,7 @@
-/* 公共样式 */
+/* 公共样式--在root组件App中引入 */
 /* 引入字体 + 色彩的公共样式 */
 @import "color";
 @import "font.less";
-
-/*初始化样式*/
-* {
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
-/*  */
-
-body {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
 
 /* 响应式-页面尺寸设置-- 栅格系统要用到 */
 
@@ -47,6 +33,52 @@ html {
 
 @media screen and (min-width: 640px) {
   html { font-size: 28px; }
+}
+
+/* 其他一些公共样式 */
+
+/* body的初始尺寸 */
+body {
+  width: 100%;
+  height: 100%;
+}
+
+/*初始化样式*/
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+/* 统一盒子模型 */
+body, * {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/*a标签样式统一*/
+a {
+  text-decoration: none;
+  &:active {
+    color: #fff;
+  }
+}
+
+
+/* 禁止移动端长按选中文本（移动app肯定需要这样做） */
+* {
+  -webkit-touch-callout:none;
+  -moz-touch-callout:none;
+  -ms-touch-callout:none;
+    // touch-callout:none;
+}
+
+/* 禁止文本选中 */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+   user-select: none;
 }
 
 /* 其他一些公共样式 */
