@@ -12,6 +12,7 @@ const FirstTest = () => (
         的承诺书 人间失格 <span className='font-h2'>太宰治</span> React-hot-loader  Acg-Box
          5.cube(): {cube(6)}  123  有梦不难   酷我音乐 1234 加油
     </div>
+    <input placeholder='请输入' />
     <div className='img-box'>
       {/* { myIcon } */}
       <img src={Icon} alt='logo: max' className='test-img' />
