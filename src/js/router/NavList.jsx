@@ -23,6 +23,7 @@ class NavList extends React.Component {
         <div className='nav-wrap'>
           <div className='nav-a'>
             <NavBar
+              type='navBar'
               navList={navList}
             />
           </div>
