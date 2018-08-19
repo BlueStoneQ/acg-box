@@ -14,7 +14,7 @@ const FirstTest = () => (
     </div>
     <div className='img-box'>
       {/* { myIcon } */}
-      <img src={Icon} alt='logo: max' />
+      <img src={Icon} alt='logo: max' className='test-img' />
     </div>
   </div>
 )
