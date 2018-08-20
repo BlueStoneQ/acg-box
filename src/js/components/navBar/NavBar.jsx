@@ -9,7 +9,8 @@
  *     }
  *  2- navList: [{name: 'link标签名称'， to: 'url'}, ...] 以数组的形式提供给Link整条Bar的Item数据
  * }
- * 3- 尽量减少配置 提供成熟的默认配置方案
+ * 3- 尽量减少配置 提供成熟的默认配置方案提供点击亮起的样式
+ * 4- 设置默认的Nav --
  */
 import React from 'react'
 import PropTypes from 'prop-types'
