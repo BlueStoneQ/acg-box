@@ -15,10 +15,10 @@ import { TodoListsPage } from '../page/mobxTodo'
 const baseUrl = '/index'
 
 const navList = [
-  { name: 'FirstTest', to: '/index/fistTest' },
-  { name: 'Game', to: '/index/game' },
-  { name: 'TodoListsPage', to: '/index/todoListsPage' },
-  { name: 'RouterMapC', to: '/index/routerMapThird' }
+  { name: '首页', to: '/index/fistTest' },
+  { name: '话题', to: '/index/game' },
+  { name: '频道', to: '/index/todoListsPage' },
+  { name: '我的', to: '/index/routerMapThird' }
 ]
 
 class RouterMapSec extends React.Component {

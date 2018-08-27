@@ -138,7 +138,7 @@ module.exports = {
     // 其实我觉得删除这种粗活用rimraf 也可以搞定 写在脚本里哈哈
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'React frame',
+      title: 'AcgBox',
       // favicon一般默认生成在项目根目录下 所以 模板文件中需要引入
       favicon: path.resolve(ROOT_PATH, 'assets/favicon.png'),
       filename: path.resolve(ROOT_PATH, 'dist/index.html'),
