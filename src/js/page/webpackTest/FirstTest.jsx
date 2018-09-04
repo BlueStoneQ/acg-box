@@ -17,6 +17,7 @@ const FirstTest = () => (
       {/* { myIcon } */}
       <img src={Icon} alt='logo: max' className='test-img' />
     </div>
+    <div style={{ width: '100px', height: '600px', backgroundColor: '#ff0' }}>/23456789/</div>
   </div>
 )
 

@@ -1,3 +1,8 @@
+/**
+ * 二级路由：
+ * 1- 管理navBar
+ * 2- 路由区域为：navBar往上的viewPort
+ */
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import RouterMapThird from './RouterMapThird'
@@ -14,11 +19,12 @@ import { TodoListsPage } from '../page/mobxTodo'
 // 父级url
 const baseUrl = '/index'
 
+// navBar数据-路由信息
 const navList = [
-  { name: '首页', to: '/index/fistTest' },
-  { name: '话题', to: '/index/game' },
-  { name: '频道', to: '/index/todoListsPage' },
-  { name: '我的', to: '/index/routerMapThird' }
+  { name: '首页', to: '/index/routerMapThird' },
+  { name: '频道', to: '/index/game' },
+  { name: '部落', to: '/index/todoListsPage' },
+  { name: '我的', to: '/index/fistTest' }
 ]
 
 class RouterMapSec extends React.Component {
