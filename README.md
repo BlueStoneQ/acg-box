@@ -18,3 +18,7 @@ document.body.contentEditable=true
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;所以：启动时使用**spy-debugger -w**就可以了
 &nbsp;&nbsp;&nbsp;&nbsp;ps:*以后使用某一个选项，一个要阅读该选项的作用，不要想当然。*
+
+## 手机页面console方案 -- vconsole
+[vconsole](https://github.com/Tencent/vConsole/blob/dev/doc/tutorial_CN.md)
+[vconsole简书](https://www.jianshu.com/p/de447816dd41)
