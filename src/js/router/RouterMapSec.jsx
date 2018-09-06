@@ -7,12 +7,12 @@ import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import RouterMapThird from './RouterMapThird'
 import { NavBar } from '../components/navBar'
+import Icon from '../components/Icon'
 import '../../style/less/routerStyle/navList.less'
 
 /**
  * 引入组件
  */
-// import { FirstTest } from '../page/webpackTest'
 import { Game } from '../page/reactGame'
 import { TodoListsPage } from '../page/mobxTodo'
 
@@ -21,10 +21,10 @@ const baseUrl = ''
 
 // navBar数据-路由信息
 const navList = [
-  { name: '首页', to: '/routerMapThird' },
-  { name: '频道', to: '/game' },
-  { name: '部落', to: '/todoListsPage' },
-  { name: '我的', to: '/fistTest' }
+  { name: '首页', to: '/routerMapThird', icon: <Icon type='icon-home' /> },
+  { name: '频道', to: '/game', icon: <Icon type='icon-file-text' /> },
+  { name: '部落', to: '/todoListsPage', icon: <Icon type='icon-users' /> },
+  { name: '我的', to: '/fistTest', icon: <Icon type='icon-user' /> }
 ]
 
 class RouterMapSec extends React.Component {

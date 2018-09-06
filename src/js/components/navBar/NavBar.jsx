@@ -56,6 +56,7 @@ class NavList extends React.Component {
         key={i}
         to={v.to}
         name={v.name}
+        icon={v.icon || null}
       />
     ))
   }

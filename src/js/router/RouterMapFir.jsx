@@ -8,7 +8,7 @@
  * 6- route（在dom文档中的位置）确定的是component要渲染的区域
  */
 import React from 'react'
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 /**
  * 引入子路由
  */
