@@ -12,19 +12,19 @@ import '../../style/less/routerStyle/navList.less'
 /**
  * 引入组件
  */
-import { FirstTest } from '../page/webpackTest'
+// import { FirstTest } from '../page/webpackTest'
 import { Game } from '../page/reactGame'
 import { TodoListsPage } from '../page/mobxTodo'
 
 // 父级url
-const baseUrl = '/index'
+const baseUrl = ''
 
 // navBar数据-路由信息
 const navList = [
-  { name: '首页', to: '/index/routerMapThird' },
-  { name: '频道', to: '/index/game' },
-  { name: '部落', to: '/index/todoListsPage' },
-  { name: '我的', to: '/index/fistTest' }
+  { name: '首页', to: '/routerMapThird' },
+  { name: '频道', to: '/game' },
+  { name: '部落', to: '/todoListsPage' },
+  { name: '我的', to: '/fistTest' }
 ]
 
 class RouterMapSec extends React.Component {
@@ -40,9 +40,9 @@ class RouterMapSec extends React.Component {
         <div className='con'>
           {/* 内容区域 */}
           <Switch>
-            <Redirect exact from='/' to={baseUrl + '/fistTest'} />
-            <Redirect exact from={baseUrl} to={baseUrl + '/fistTest'} />
-            <Route path={baseUrl + '/fistTest'} component={FirstTest} />
+            <Redirect exact from='/' to={baseUrl + '/routerMapThird'} />
+            <Redirect exact from={baseUrl} to={baseUrl + '/routerMapThird'} />
+            <Route path={baseUrl + '/routerMapThird'} component={RouterMapThird} />
             <Route path={baseUrl + '/game'} component={Game} />
             <Route path={baseUrl + '/todoListsPage'} component={TodoListsPage} />
             <Route path={baseUrl + '/routerMapThird'} component={RouterMapThird} />

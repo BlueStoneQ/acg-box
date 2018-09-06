@@ -17,8 +17,7 @@ import RouterMapSec from './RouterMapSec'
 const RouterMapA = (props) => (
   <Router>
     <Switch>
-      <Redirect exact from='/' to='/index' />
-      <Route path='/index' component={RouterMapSec} />
+      <Route path='/' component={RouterMapSec} />
       <Route path='/article' render={() => (<div>全屏页，文章页，返回键</div>)} />
     </Switch>
   </Router>

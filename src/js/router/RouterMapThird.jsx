@@ -7,17 +7,15 @@
  */
 import React from 'react'
 import { NavBar } from '../components/navBar'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 /**
  * 引入组件
  */
 import { FirstTest } from '../page/webpackTest'
-// import { Game } from '../page/reactGame'
-// import { TodoListsPage } from '../page/mobxTodo'
 
 // 父级url
-const baseUrl = '/index/routerMapThird'
+const baseUrl = '/routerMapThird'
 
 // navBar数据-路由信息
 const navList = [
@@ -34,13 +32,10 @@ const RouterMapThird = (props) => (
       />
     </div>
     <Switch>
-      <Route exact path={baseUrl + '/'} component={FirstTest} />
+      <Redirect exact from={baseUrl} to={baseUrl + '/recommend'} />
       {/* 需要利用redirect进行路跳转 / => /recommend */}
       <Route exact path={baseUrl + '/recommend'} component={FirstTest} />
-      <Route exact path={baseUrl + '/'} component={FirstTest} />
-      {/* <Route path='/firstTest' component={FirstTest} />
-    <Route path='/game' component={Game} />
-    <Route path='/todoListsPage' component={TodoListsPage} /> */}
+      <Route exact path={baseUrl + '/firstTest'} component={FirstTest} />
     </Switch>
   </div>
 )
