@@ -13,12 +13,14 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
  * 引入子路由
  */
 import RouterMapSec from './RouterMapSec'
+import { TodoListsPage } from '../page/mobxTodo'
 
 const RouterMapA = (props) => (
   <Router>
     <Switch>
       <Route path='/' component={RouterMapSec} />
-      <Route path='/article' render={() => (<div>全屏页，文章页，返回键</div>)} />
+      <Route path='/article' component={TodoListsPage} />
+      {/* <Route path='/article' render={() => (<div>全屏页，文章页，返回键</div>)} /> */}
     </Switch>
   </Router>
 )

@@ -8,7 +8,7 @@
  * 例如：Icon, activeClassName等，都可以暴露出去以满足父组件个性化的需求尽量
  * props.icon 这个props可以传入一个Icon组件
  * -- NacItem中留出这样一个Icon的位置 在props.icon存在的时候出现 平时隐藏 位置尺寸样式由Item提供的容器icon-box决定
- * 组件之间尽量减少调用 实现低耦合 由父组件进行传入
+ * [bug]组件之间尽量减少调用 实现低耦合 由父组件进行传入
  * -- 这里在移动端有时会报一个错 但是不影响程序运行 就是红色的报错很不爽 -- pc端完全不报错
  * ---- uncaught TypeError: cannot read propty 'insertAjacentHTML' of null
  * --- 原因可能是在RouterMapSec中 使用了数组/对象/props 传递了组件

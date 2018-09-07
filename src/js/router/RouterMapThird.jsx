@@ -20,7 +20,7 @@ const baseUrl = '/routerMapThird'
 // navBar数据-路由信息
 const navList = [
   { name: '推荐', to: baseUrl + '/recommend' },
-  { name: '话题', to: '/index/game' }
+  { name: '话题', to: '/article' }
 ]
 
 const RouterMapThird = (props) => (

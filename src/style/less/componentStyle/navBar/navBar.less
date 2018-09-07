@@ -4,9 +4,6 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    .nav-item {
-      color: @font-color-gray;
-    }
     .nav-selected {
       color: @font-color-active;
     }
@@ -14,13 +11,14 @@
 
   .nav-bottom {
     position: fixed;
-    bottom: 0.2rem;
+    bottom: 0;
     left: 0;
     padding: 0.3rem 0 0.2rem 0;
-    border-top: 1px solid @them-back-sec-color;
+    background-color: @theme-back-color;
   }
   .nav-top {
     position: fixed;
-    top: 0.2rem;
+    top: 0;
     left: 0;
+    background-color: @theme-back-color;
   }
