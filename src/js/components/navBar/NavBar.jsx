@@ -21,9 +21,6 @@ import PropTypes from 'prop-types'
 import NavItem from './NavItem'
 import '../../../style/less/componentStyle/navBar/navBar.less'
 
-/** 最初的屏幕可用尺寸 -- 测试 */
-const oHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-
 class NavBar extends React.Component {
   constructor (props) {
     super(props)
@@ -46,8 +43,29 @@ class NavBar extends React.Component {
     ))
   }
   /**
+   * 屏幕变化时的响应事件
+   * @param {obj} thiz 该函数执行的上下文对象，也就是NavBar组件本身
+   * @param {num} oHeight 原来的屏幕尺寸（文档尺寸）
+   */
+  hideNavBar (thiz, oHeight) {
+    const nHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    // 当屏幕的尺寸（宽/高）变化超过1/3 -- 现在只用高 -- 这里的比较还是需要采用其他值/或者公共变量来记录/对象属性来记录原来的高度
+    if ((oHeight - nHeight) > (oHeight / 3)) {
+      // 当虚拟键盘弹起时 导航栏隐藏
+      thiz.setState({
+        hidden: true
+      })
+    } else {
+      // 恢复导航栏的显示
+      thiz.setState({
+        hidden: false
+      })
+    }
+  }
+  /**
    * 当type为‘navBar’时，并且屏幕可用尺寸变化超过1/3时 则隐藏底部的导航栏
    * 1- 针对底部navBar会被虚拟键盘顶起来
+   * 2- 对于绑定的事件 - 在componentWillUnmount钩子中需要解绑
    */
   init () {
     const thiz = this
@@ -57,28 +75,19 @@ class NavBar extends React.Component {
       let ua = navigator.userAgent.toLowerCase()
       // 以防万一 这里需要判断是否在移动端 在移动端才绑定这个属性
       if (/mobile|android|iphone|phone|ipad|/i.test(ua)) {
-        // 记录原来的尺寸
-        // let oHeight = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-        window.onresize = function () {
-          const nHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-          // 当屏幕的尺寸（宽/高）变化超过1/3 -- 现在只用高 -- 这里的比较还是需要采用其他值/或者公共变量来记录/对象属性来记录原来的高度
-          if ((oHeight - nHeight) > (oHeight / 3)) {
-            // 当虚拟键盘弹起时 导航栏隐藏
-            thiz.setState({
-              hidden: true
-            })
-          } else {
-            // 恢复导航栏的显示
-            thiz.setState({
-              hidden: false
-            })
-          }
-        }
+        /** 最初的屏幕可用尺寸 -- 测试 */
+        const oHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+        // 对于在React中的事件增加我们不能用addEventListener而应该用最初的那些事件绑定方式进行绑定
+        window.onresize = () => this.hideNavBar(thiz, oHeight)
       }
     }
   }
   componentDidMount () {
     this.init()
+  }
+  componentWillUnmount () {
+    // 解绑呼出虚拟键盘后的事件 -- 因为移动端大都是高阶浏览器 这里就不用兼容ie567的写法了 -- 貌似没有执行啊
+    window.removeEventListener('onresize', this.hideNavBar)
   }
   render () {
     return (
