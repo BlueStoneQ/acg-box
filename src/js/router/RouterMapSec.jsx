@@ -13,7 +13,6 @@ import '../../style/less/routerStyle/navList.less'
 /**
  * 引入组件
  */
-import { Game } from '../page/reactGame'
 import { TodoListsPage } from '../page/mobxTodo'
 
 // 父级url
@@ -43,7 +42,7 @@ class RouterMapSec extends React.Component {
             <Redirect exact from='/' to={baseUrl + '/routerMapThird'} />
             <Redirect exact from={baseUrl} to={baseUrl + '/routerMapThird'} />
             <Route path={baseUrl + '/routerMapThird'} component={RouterMapThird} />
-            <Route path={baseUrl + '/game'} component={Game} />
+            <Route path={baseUrl + '/game'} component={TodoListsPage} />
             <Route path={baseUrl + '/todoListsPage'} component={TodoListsPage} />
             <Route path={baseUrl + '/routerMapThird'} component={RouterMapThird} />
           </Switch>
