@@ -11,6 +11,10 @@
  * }
  * 3- 尽量减少配置 提供成熟的默认配置方案提供点击亮起的样式
  * 4- 设置默认的Nav --
+ * 5- 实现页面下滑 -- tabBar向下移动一定的距离 向上
+ * -- 这里我们需要在组件内监听onScroll事件 + 并且要配合一定的过渡动画 --- css3中的transition
+ * -- 前提是type=tabBar
+ * -- 越来越多的趋势指向：NavBar和TabBar分开：嗯 组件划分的粒度很重要 分吧 -- 2018/9/7
  */
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -20,31 +24,12 @@ import '../../../style/less/componentStyle/navBar/navBar.less'
 /** 最初的屏幕可用尺寸 -- 测试 */
 const oHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
 
-class NavList extends React.Component {
+class NavBar extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       hidden: false
     }
-  }
-  /**
-   *
-   * @param {string} navType 根据type来决定nav的样式
-   */
-  getNavClassByType (navType) {
-    let type = navType || ''
-    let result
-    switch (type) {
-      case 'tabBar':
-        result = ' ' + 'nav-top'
-        break
-      case 'navBar':
-        result = ' ' + 'nav-bottom'
-        break
-      default:
-        result = ''
-    }
-    return result
   }
   /**
    * 遍历渲染出NavBar -- 后面会抽象出去作为组件
@@ -98,9 +83,7 @@ class NavList extends React.Component {
   render () {
     return (
       <nav
-        className={
-          'nav' +
-          this.getNavClassByType(this.props.type)}
+        className='nav nav-bottom'
         style={{
           display: this.state.hidden ? 'none' : 'flex'
         }}
@@ -111,9 +94,9 @@ class NavList extends React.Component {
   }
 }
 
-NavList.propTypes = {
+NavBar.propTypes = {
   type: PropTypes.string,
   navList: PropTypes.array.isRequired
 }
 
-export default NavList
+export default NavBar

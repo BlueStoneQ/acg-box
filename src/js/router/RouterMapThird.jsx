@@ -6,8 +6,8 @@
  * 4- 在这里呢，页面的布局（对b区的划分）：tabBar + con
  */
 import React from 'react'
-import { NavBar } from '../components/navBar'
 import { Route, Switch, Redirect } from 'react-router-dom'
+import { TabBar } from '../components/tabBar'
 
 /**
  * 引入组件
@@ -17,8 +17,8 @@ import { FirstTest } from '../page/webpackTest'
 // 父级url
 const baseUrl = '/routerMapThird'
 
-// navBar数据-路由信息
-const navList = [
+// TabBar数据-路由信息
+const tabList = [
   { name: '推荐', to: baseUrl + '/recommend' },
   { name: '话题', to: '/article' }
 ]
@@ -26,9 +26,9 @@ const navList = [
 const RouterMapThird = (props) => (
   <div>
     <div>
-      <NavBar
+      <TabBar
         type='tabBar'
-        navList={navList}
+        tabList={tabList}
       />
     </div>
     <Switch>
