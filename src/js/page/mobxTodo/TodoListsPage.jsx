@@ -1,5 +1,6 @@
 /**
  * 该模块的页面 调用 组织各个组件
+ * 1- 该部分在开发前期主要知道整个工程mobx的使用
  */
 import React, { Component } from 'react'
 import TodoList, { TodoListStore } from './components/TodoList'

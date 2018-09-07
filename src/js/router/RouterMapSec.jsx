@@ -14,6 +14,7 @@ import '../../style/less/routerStyle/navList.less'
  * 引入组件
  */
 import { TodoListsPage } from '../page/mobxTodo'
+import { Tribe } from '../page/tribe'
 
 // 父级url
 const baseUrl = ''
@@ -21,8 +22,8 @@ const baseUrl = ''
 // navBar数据-路由信息
 const navList = [
   { name: '首页', to: '/routerMapThird', icon: <Icon type='icon-home' /> },
-  { name: '频道', to: '/game', icon: <Icon type='icon-file-text' /> },
-  { name: '部落', to: '/todoListsPage', icon: <Icon type='icon-users' /> },
+  { name: '频道', to: '/todoListsPage', icon: <Icon type='icon-file-text' /> },
+  { name: '部落', to: '/tribe', icon: <Icon type='icon-users' /> },
   { name: '我的', to: '/fistTest', icon: <Icon type='icon-user' /> }
 ]
 
@@ -36,13 +37,13 @@ class RouterMapSec extends React.Component {
             navList={navList}
           />
         </div>
-        <div className='con'>
+        <div className='nav-con'>
           {/* 内容区域 */}
           <Switch>
             <Redirect exact from='/' to={baseUrl + '/routerMapThird'} />
             <Redirect exact from={baseUrl} to={baseUrl + '/routerMapThird'} />
             <Route path={baseUrl + '/routerMapThird'} component={RouterMapThird} />
-            <Route path={baseUrl + '/game'} component={TodoListsPage} />
+            <Route path={baseUrl + '/tribe'} component={Tribe} />
             <Route path={baseUrl + '/todoListsPage'} component={TodoListsPage} />
             <Route path={baseUrl + '/routerMapThird'} component={RouterMapThird} />
           </Switch>
