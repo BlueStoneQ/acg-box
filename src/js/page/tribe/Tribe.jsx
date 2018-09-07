@@ -8,9 +8,25 @@ import React, { Component } from 'react'
 import '../../../style/less/pageStyle/tribe/tribe.less'
 
 class Tribe extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      count: 0
+    }
+  }
+  /**
+   * 注意React事件中this的获取 -- 这里采用stage3的写法 -- 因为这是未来
+   * https://segmentfault.com/a/1190000011877137#articleHeader0
+   */
+  onClick = (e) => {
+    console.log('this: ' + this.state.count)
+  }
   render () {
     return (
-      <div className='tribe' />
+      <div
+        className='tribe'
+        onClick={this.onClick}
+      />
     )
   }
 }
