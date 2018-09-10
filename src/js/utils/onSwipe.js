@@ -19,6 +19,8 @@ var startY = 0
 
 /**
  * 适配器：对外封装的swipe事件--默认绑定touchStart和touchEnd事件 -- 避免使用者每次都得传入事件麻烦
+ * @param {obj} ref 这里传回React中使用this.refs+ref属性值索引到的React对象引用
+ * @param {obj} funcObj 成员是函数的对象 { swipe2L: // 传入向左滑动回调函数,  swipe2R: // 传入向右滑动回调函数 }
  */
 const addSwipeEvent = (ref, funcObj) => {
   console.log('1- funcObj: ' + JSON.stringify(funcObj))
@@ -28,6 +30,9 @@ const addSwipeEvent = (ref, funcObj) => {
 /**
  * 给传入的refs绑定几个touch事件
  * 1- 这个函数可以再封装一层 一次性封装touchStart和touchEnd事件 -- 作为滑动手势事件
+ * @param {obj} ref 这里传回React中使用this.refs+ref属性值索引到的React对象引用
+ * @param {string | Array} touchEvents 该React元素需要绑定的事件名称/列表--该值/数组用于绑定/遍历绑定/该事件其中所有事件给React元素
+ * @param {obj} funcObj 成员是函数的对象
  */
 const addTouchEvent = (ref, touchEvents, funcObj) => {
   if (touchEvents instanceof Array) {
@@ -41,6 +46,16 @@ const addTouchEvent = (ref, touchEvents, funcObj) => {
   }
 }
 
+/**
+ * 处理触摸事件
+ * @param {*} e 事件对象
+ * @param {*} funcObj 成员是函数的对象
+ * { swipe2L: // 传入的向左滑动回调函数
+ *   swipe2R: // 传入的向右滑动回调函数
+ *   swipe2T: // 传入的向上滑动回调函数
+ *   swipe2B: // 传入的向下滑动回调函数
+ * }
+ */
 const handleTouchEvent = (e, funcObj) => {
   switch (e.type) {
     case 'touchstart':

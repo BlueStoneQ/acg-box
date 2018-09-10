@@ -16,8 +16,9 @@ class Tribe extends Component {
     console.log('回调向右')
   }
   componentDidMount () {
+    // 这个东西可以封装为一个适配器放在swipe中 返回一个obj
     let obj = {}
-    // 函数需要这样赋值给obj-要在obj创建以后
+    // 函数需要这样赋值给obj-要在obj创建以后 -- 这里就是如何利用一个对象传递函数作为属性成员
     obj.swipe2L = this.onSwipe2L
     obj.swipe2R = this.onSwipe2R
     addSwipeEvent(this.refs.touch, obj)
