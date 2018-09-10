@@ -9,8 +9,18 @@ import { addSwipeEvent } from '../../utils/onSwipe'
 import '../../../style/less/pageStyle/tribe/tribe.less'
 
 class Tribe extends Component {
+  onSwipe2L () {
+    console.log('回调向左')
+  }
+  onSwipe2R () {
+    console.log('回调向右')
+  }
   componentDidMount () {
-    addSwipeEvent(this.refs.touch, () => { console.log('开始') })
+    let obj = {}
+    // 函数需要这样赋值给obj-要在obj创建以后
+    obj.swipe2L = this.onSwipe2L
+    obj.swipe2R = this.onSwipe2R
+    addSwipeEvent(this.refs.touch, obj)
   }
   render () {
     return (
