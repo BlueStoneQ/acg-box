@@ -14,36 +14,40 @@
 */
 var startX = 0
 var startY = 0
+
 /**
- * 给传入的refs绑定几个touch事件
+ * 适配器：对外封装的swipe事件--默认绑定touchStart和touchEnd事件 -- 避免使用者每次都得传入事件麻烦
  */
-const addTouchEvent = (thiz, ref, func) => {
-  // refs.touchStart = handleTouchEvent(func, e)
-  ref.ontouchstart = (e) => handleTouchEvent(func, thiz, e)
-  ref.ontouchend = (e) => handleTouchEvent(func, thiz, e)
+const addSwipeEvent = (ref, func) => {
+  addTouchEvent(ref, ['ontouchstart', 'ontouchend'], func)
 }
 
-const handleTouchEvent = (func, thiz, e) => {
+/**
+ * 给传入的refs绑定几个touch事件
+ * 1- 这个函数可以再封装一层 一次性封装touchStart和touchEnd事件 -- 作为滑动手势事件
+ */
+const addTouchEvent = (ref, touchEvents, func) => {
+  if (touchEvents instanceof Array) {
+    // 如果是个数组就依次绑上数组中的事件
+    for (let v of touchEvents) {
+      ref[v] = (e) => handleTouchEvent(e, func)
+    }
+  } else {
+    // 如果只绑定一个事件类型就只绑定一个即可
+    ref[touchEvents] = (e) => handleTouchEvent(e, func)
+  }
+}
+
+const handleTouchEvent = (e, func) => {
   switch (e.type) {
     case 'touchstart':
-      console.log('-------------------------------------------------------------------------------------')
-      console.log('---------onTouchStart---e.touches:\n' + thiz.printObj(e.touches[0]))
       startX = e.touches[0].screenX
       startY = e.touches[0].screenY
-      console.log('-------------------------------------------------------------------------------------')
       break
     case 'touchend':
-      console.log('***************************************************************************************')
-      // console.log('---------onTouchMove---e:\n' + this.printObj(e))
-      console.log('---------onTouchEnd---e.changedTouches:\n' + thiz.printObj(e.changedTouches[0]))
-      console.log('---------onTouchEnd---startX:\n' + startX)
-      console.log('---------onTouchEnd---startY:\n' + startY)
       let spanX = e.changedTouches[0].screenX - startX
       let spanY = e.changedTouches[0].screenY - startY
-      swipeHandler(spanX, spanY)
-      // console.log('---------onTouchMove---e.touches:\n' + JSON.stringify(e.touches[0]))
-      // console.log('---------onTouchMove---e.changedTouchs:\n' + JSON.stringify(e.changedTouchs))
-      console.log('***************************************************************************************')
+      swipeHandler(spanX, spanY, func)
       break
     default:
       // 其他
@@ -78,4 +82,4 @@ const swipeHandler = (spanX, spanY) => {
   }
 }
 
-export { addTouchEvent }
+export { addSwipeEvent, addTouchEvent }
