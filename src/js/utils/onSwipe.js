@@ -7,6 +7,7 @@
  * 5- 最基础的是 利用传进来的refs给虚拟dom绑定onTouchStart onTouchMove onTouchEnd三个基础事件
  * React中的事件： https://react.docschina.org/docs/events.html
  * 6- 打印了refs对象才知道其事件是这样写的：ontouchstart ontouchend这样的 不是驼峰式的
+ * 7- 另外 注意要阻止/屏蔽一些默认响应 -- 例如有的浏览器左右滑屏会切换你的路由
  */
 
 /**
@@ -52,6 +53,9 @@ const handleTouchEvent = (e, func) => {
     default:
       // 其他
   }
+  // 阻止默认事件响应 -- 例如有些浏览器添加的滑动时路由切换  -- 这里必须在自定义事件之后执行，否则拿不到e
+  // 当然在处理函数前可以执行 那个适合e的值都已经获取并计算出有效信息了
+  e.preventDefault()
 }
 
 /**
