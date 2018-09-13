@@ -15,6 +15,8 @@ A webApp for everyone who loves Acg. It`s the first WebApp of me.
 * 设计参考 --APP: 一刻talks + 简书
 * 使用北欧设计的设计极简理念 尽量使用点线面+浅色调 减轻用户的视觉压力 -- 减少碎片化和割裂感（少使用线条） 使用圆角等来减少线条的生硬感
 
+# 项目的部署和启动
+因为还没有部署到云上 所以 暂时可以参考自己的[这篇博客](https://segmentfault.com/a/1190000016061682)来启动项目的测试
 
 # 踩坑
 ## 页面居然所有元素可编辑
